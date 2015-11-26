@@ -114,7 +114,9 @@ public class Login extends javax.swing.JFrame {
 
     private void botaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!!!");
+        //JOptionPane.showMessageDialog(null,"Chamando tela de cadastro");
+        Cadastro cad = new Cadastro();
+        cad.setVisible(true);//rootPaneCheckingEnabled
     }//GEN-LAST:event_botaoCadastroActionPerformed
 
     /**

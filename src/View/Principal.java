@@ -5,7 +5,7 @@ import Controller.UsuarioC;
 public class Principal {
     
     public static void main(String args[]) {
-        //usuario
+        /*usuario
         String cpf, codGrupo, tipoUsuario, nome, email, telefone, senha;
         cpf = "05908755590";
         codGrupo = null;
@@ -30,13 +30,15 @@ public class Principal {
         evDescricao = "Este evento é destinado a todos os estudantes de TI da instituição e de fora.";
         evDataIni = "2015-11-01";
         evDataFim = "2015-11-05";
-//----------------------------------------
+                /*
+        
+        */
         //UsuarioC usuario = new UsuarioC();
         //String cadastrarUsuario = usuario.cadastrarUsuario(cpf, codGrupo, tipoUsuario, nome, email, telefone, senha);
         //System.out.println("\n"+cadastrarUsuario+"\n--------------------------------------------------\n");
 //----------------------------------------    
-        //EnderecoC end = new EnderecoC();
-        //String cadastrarEndereco = end.cadastrarEndereco(cpf, estado, cidade, cep, rua, bairro, numero);
+       // EnderecoC end = new EnderecoC();
+      //  String cadastrarEndereco = end.cadastrarEndereco(cpf, estado, cidade, cep, rua, bairro, numero);
         //System.out.println(cadastrarEndereco);
 //---------------------------------------- 
         //EventoC ev = new EventoC();

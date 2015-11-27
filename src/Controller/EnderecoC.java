@@ -2,6 +2,7 @@ package Controller;
 
 import Model.EnderecoM;
 import Model.UsuarioM;
+import javax.swing.JTextField;
 
 public class EnderecoC {
 
@@ -44,5 +45,9 @@ public class EnderecoC {
         } else {
             return "Não é possível atribuir um endereco a um usuário que não esteja cadastrado.";
         }
+    }
+
+    public void cadastrarEndereco(JTextField campoCpf, JTextField campoEstado, JTextField campoCidade, JTextField campoCep, JTextField campoRua, JTextField campoBairro, JTextField campoNumero) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

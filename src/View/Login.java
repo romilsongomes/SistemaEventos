@@ -43,6 +43,12 @@ public class Login extends javax.swing.JFrame {
 
         labelEmail.setText("Email");
 
+        campoEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEmailActionPerformed(evt);
+            }
+        });
+
         labelSenha.setText("Senha");
 
         botaoCadastro.setText("Cadastrar-se");
@@ -117,7 +123,12 @@ public class Login extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(null,"Chamando tela de cadastro");
         Cadastro cad = new Cadastro();
         cad.setVisible(true);//rootPaneCheckingEnabled
+        dispose();
     }//GEN-LAST:event_botaoCadastroActionPerformed
+
+    private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEmailActionPerformed
 
     /**
      * @param args the command line arguments

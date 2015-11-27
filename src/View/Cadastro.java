@@ -338,15 +338,25 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         // TODO add your handling code here:
+         
         UsuarioC u = new  UsuarioC();
         EnderecoC e = new EnderecoC();
-        String a=campoCpf.getText();
-        String b=campoEmail.getText();
-        String c=campoTelefone.getText();
-        String d= campoSenha.getText();
-        String f= campoNome.getText();
-        u.cadastrarUsuario(a, f, b, c, d, null, null);
-        e.cadastrarEndereco(campoCpf,campoEstado, campoCidade, campoCep, campoRua, campoBairro, campoNumero);
+        String cpf=campoCpf.getText();
+        String email=campoEmail.getText();
+        String telefone=campoTelefone.getText();
+        String senha= campoSenha.getText();
+        String nome= campoNome.getText();
+        //cpf, codGrupo, tipoUsuario, nome, email, telefone, senha
+        //u.cadastrarUsuario(cpf, "i", null,nome ,email , telefone, senha);
+        u.cadastrarUsuario(cpf, null, "i",nome ,email , telefone, senha);
+        String estado= campoEstado.getText();
+        String cidade=campoCidade.getText();
+        String cep=campoCep.getText();
+        String rua=campoRua.getText();
+        String bairro=campoBairro.getText();
+        String numero=campoNumero.getText();
+              //cpf, estado, cidade, cep, rua, bairro, numero
+        e.cadastrarEndereco(cpf,estado, cidade, cep, rua, bairro, numero);
         dispose();
     }//GEN-LAST:event_botaoSalvarActionPerformed
 

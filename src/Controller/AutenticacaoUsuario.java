@@ -30,6 +30,16 @@ public class AutenticacaoUsuario {
 
     UsuarioM usuario = new UsuarioM();
 
+    /**
+     * Método que verifica se o usuario existe e retorna o tipo de usuario.
+     * a ou A para administradores
+     * i ou I para inscritos
+     * null (nullo) caso o usuario não exista
+     *
+     * @param email - Email do formulário de login
+     * @param senha - Senha do formulário de login
+     * @return tipo do usuário ou nullo
+     */
     public String AutenticacaoUsuario(String email, String senha) {
         ResultSet res = this.usuario.autenticaUsuario(email, senha);
         String bancoEmail = null, bancoSenha = null, bancoTipoUsuario = null, bancoCodUsuario = null;

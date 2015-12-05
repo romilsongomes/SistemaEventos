@@ -38,6 +38,7 @@ public class Login extends javax.swing.JFrame {
         campoSenha = new javax.swing.JPasswordField();
         botaoCadastro = new javax.swing.JButton();
         botaoLogin = new javax.swing.JButton();
+        butaoListaUsuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,24 +99,38 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        butaoListaUsuarios.setText("Lista usuarios");
+        butaoListaUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butaoListaUsuariosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGap(231, 231, 231)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(butaoListaUsuarios)))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(107, 107, 107)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(butaoListaUsuarios)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroActionPerformed
@@ -129,6 +144,13 @@ public class Login extends javax.swing.JFrame {
     private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoEmailActionPerformed
+
+    private void butaoListaUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butaoListaUsuariosActionPerformed
+        // TODO add your handling code here:
+        AdminListarUsuarios lu = new AdminListarUsuarios();
+        lu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_butaoListaUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +190,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastro;
     private javax.swing.JButton botaoLogin;
+    private javax.swing.JButton butaoListaUsuarios;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JPanel jPanel1;

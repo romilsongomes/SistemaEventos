@@ -10,6 +10,7 @@ public class UsuarioM {
     public String getCpf() {
         return this.cpf;
     }
+
     public String getCodUsuario() {
         return this.codUsuario;
     }
@@ -61,8 +62,7 @@ public class UsuarioM {
         //Se o valor de cpf 2 for null, significa que o CPF não foi cadastrado
         return (cpf2 == null) ? false : true;
     }
-    
-    
+
     //Obtem o código de um usuario através do CPF
     public String getCodUsuario(String cpf) {
         System.out.println("Obtendo o código do usuario em UsuarioM");
@@ -78,6 +78,46 @@ public class UsuarioM {
             //alguma coisa
         }
         return cod_usuario;
+    }
+
+    public ResultSet getDadosUsuario(String pCodUsuario) {
+        String sqlQuery;
+        sqlQuery = "SELECT cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario "
+                + "FROM usuario WHERE cod_usuario = '" + pCodUsuario + "';";
+        ResultSet res = this.db.executaConsultaSql(sqlQuery);
+        return res;
+    }
+    
+    public void setDadosUsuario(String cod_usuario, String cpf, String nome, String email, String telefone, String senha, String cod_grupo, char tipo_usuario){
+        //ordem cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario
+        
+        //verificar se o código do grupo foi passado vazio ou nulo
+        String cod_grupo2 = ("".equals(cod_grupo) || cod_grupo == null) ? null : "'" + cod_grupo + "'";
+        String sql;
+        sql = "update usuario set "
+                + "cpf = '"+cpf+"', "
+                + "nome = upper('"+nome+"'), "
+                + "email = upper('"+email+"'), "
+                + "telefone = '"+telefone+"', "
+                + "senha = '"+senha+"', "
+                + "cod_grupo = "+cod_grupo2+", "
+                + "tipo_usuario = '"+tipo_usuario+"' "
+                + "     where cod_usuario = "+cod_usuario+";";
+        this.db.executaComandoSql(sql);
+    }
+    
+    public ResultSet getTotalUsuarios() {
+        String sqlQuery;
+        sqlQuery = "SELECT count(cod_usuario) as total_usuarios from usuario;";
+        ResultSet res = this.db.executaConsultaSql(sqlQuery);
+        return res;
+    }
+    
+    public ResultSet getTodosUsuarios(){
+        String sqlQuery;
+        sqlQuery = "SELECT * from usuario;";
+        ResultSet res = this.db.executaConsultaSql(sqlQuery);
+        return res;
     }
 
 }

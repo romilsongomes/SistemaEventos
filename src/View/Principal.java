@@ -5,6 +5,19 @@ import Controller.UsuarioC;
 public class Principal {
     
     public static void main(String args[]) {
+        /**
+         * No banco de dados colocar o CPF e Email como UNIQUE
+         * Na table dos grupos, colocar os nomes dos grupos como UNIQUE também
+         */
+        
+        
+        
+        
+        
+        
+        
+        
+        
         /*usuario
         String cpf, codGrupo, tipoUsuario, nome, email, telefone, senha;
         cpf = "05908755590";

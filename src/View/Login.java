@@ -7,6 +7,8 @@
  */
 package View;
 
+import Controller.AutenticacaoUsuario;
+import Model.UsuarioM;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,12 +40,13 @@ public class Login extends javax.swing.JFrame {
         campoSenha = new javax.swing.JPasswordField();
         botaoCadastro = new javax.swing.JButton();
         botaoLogin = new javax.swing.JButton();
-        butaoListaUsuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela de login");
 
         labelEmail.setText("Email");
 
+        campoEmail.setText("RR@G.CV");
         campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEmailActionPerformed(evt);
@@ -51,6 +54,8 @@ public class Login extends javax.swing.JFrame {
         });
 
         labelSenha.setText("Senha");
+
+        campoSenha.setText("agfaguf");
 
         botaoCadastro.setText("Cadastrar-se");
         botaoCadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -72,23 +77,23 @@ public class Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(botaoLogin))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(botaoCadastro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botaoLogin)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(labelSenha)
-                            .addComponent(labelEmail))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoEmail)
-                            .addComponent(campoSenha)))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(campoSenha))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelEmail)
+                            .addGap(18, 18, 18)
+                            .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelEmail)
@@ -97,41 +102,28 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSenha)
                     .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoLogin)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoCadastro)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        butaoListaUsuarios.setText("Lista usuarios");
-        butaoListaUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butaoListaUsuariosActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(butaoListaUsuarios)))
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGap(253, 253, 253)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(180, 180, 180)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butaoListaUsuarios)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,22 +135,46 @@ public class Login extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(null,"Chamando tela de cadastro");
         Cadastro cad = new Cadastro();
         cad.setVisible(true);//rootPaneCheckingEnabled
-        dispose();
+
     }//GEN-LAST:event_botaoCadastroActionPerformed
 
     private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_campoEmailActionPerformed
 
-    private void butaoListaUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butaoListaUsuariosActionPerformed
-        // TODO add your handling code here:
-        AdminListarUsuarios lu = new AdminListarUsuarios();
-        lu.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_butaoListaUsuariosActionPerformed
 
     private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
         // TODO add your handling code here:
+        String email = campoEmail.getText(), senha = campoSenha.getText();
+        AutenticacaoUsuario au = new AutenticacaoUsuario();
+        
+        /**
+         * Array de String retornado
+         * resAutenticacaoUsuario[0] é o tipo de usuario
+         *  * a ou A — Administradpr
+         *  * i ou I — Inscrito
+         *  * null — Autenticação invalida
+         */
+        String resTipoUsuario = au.AutenticacaoUsuario(email, senha);
+
+        //verifica se o usuario logado é administrador ou não
+        if (resTipoUsuario == null) {//verfica de autenticação é inválida,
+            JOptionPane.showMessageDialog(null, "Email e/ou senha incorreto. Tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+            //caso a autenticação seja válida verifica o tipo de usuario
+            this.dispose(); //fecha a tela de login
+            //como só existem 2 tipos de usuarios, ele é administrador ou incrito
+            if ("a".equals(resTipoUsuario) || "A".equals(resTipoUsuario)) {
+                //chama a tela principal do administrador
+                AdminListarUsuarios telaListarUsuarios = new AdminListarUsuarios();
+                telaListarUsuarios.setVisible(true);
+            } else {
+                //chama a tela principal do inscrito
+                menuUsuario telaMenuUsuario = new menuUsuario();
+                telaMenuUsuario.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_botaoLoginActionPerformed
 
     /**
@@ -199,7 +215,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastro;
     private javax.swing.JButton botaoLogin;
-    private javax.swing.JButton butaoListaUsuarios;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JPanel jPanel1;

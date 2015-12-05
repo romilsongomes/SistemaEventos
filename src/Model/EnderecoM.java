@@ -26,6 +26,16 @@ public class EnderecoM {
         this.db.executaComandoSql(sql);
     }
 
+    public void upadeteEndereco(String estado, String cidade, String cep, String rua, String bairro, String numero) {
+        String codUsuario = "";//enquanto não consegue obter o código do usuario
+
+        String sql = "update endereco("
+                + "             estado, cidade, cep, rua, bairro, numero)"
+                + "   set ( upper('" + estado + "'), upper('" + cidade + "'), '" + cep + "', upper('" + rua + "'), upper('" + bairro + "'), upper('" + numero + "')where (cod_usuario='" + codUsuario + "')"
+                + ");";
+        this.db.executaComandoSql(sql);
+    }
+
     /**
      *
      * @param cod_usuario - Código do usuario

@@ -1,8 +1,6 @@
 package Controller;
 
 import Model.UsuarioM;
-import View.AdminEditarUsuario;
-import javax.swing.JOptionPane;
 
 public class UsuarioC {
 
@@ -24,16 +22,6 @@ public class UsuarioC {
             else{
                 return "Algo de errado ocorreu ao cadastrar o usuario";
             }
-        }
-    }
-    
-    public void telaEditarUsuario(String codUsuario){
-        if("".equals(codUsuario) || codUsuario == null){
-            JOptionPane.showMessageDialog(null, "Você precisa selecionar um usuario.", "Atenção!", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            AdminEditarUsuario eu = new AdminEditarUsuario(codUsuario);
-            eu.setVisible(true);
         }
     }
 }

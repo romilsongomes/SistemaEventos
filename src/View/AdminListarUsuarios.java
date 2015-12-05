@@ -8,6 +8,8 @@
 package View;
 
 import Controller.Administrador;
+import Controller.AutenticacaoUsuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +23,7 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
      * Construir a tabela de usuarios cadastrados
      */
     /*String[] listaUsuariosCabecalho = new String[]{
-        "Cod. Usuário", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usuário", "Cod. Grupo"
+        "Cod. Usu�rio", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usu�rio", "Cod. Grupo"
     };*/
     //Object[][] listaUsuariosLinhas = administrador.getUsuariosParaLista();
 
@@ -31,6 +33,8 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
      */
     public AdminListarUsuarios() {
         initComponents();
+        AutenticacaoUsuario au = new AutenticacaoUsuario();
+        JOptionPane.showMessageDialog(null, "o cod do usuario logado é "+au.getCodUsuario());
     }
 
     /**
@@ -49,7 +53,7 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
         btnEditarUsuarioSelecionado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gerenciamento de usuários");
+        setTitle("Gerenciamento de usu�rios");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -57,12 +61,12 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de usuários"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de usu�rios"));
 
         tabelaListaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             administrador.getUsuariosParaLista(),
             new String[]{
-				"Cod. Usuário", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usuário", "Cod. Grupo"
+				"Cod. Usu�rio", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usu�rio", "Cod. Grupo"
 			}
         ));
         tabelaListaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,14 +93,14 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton2.setText("Endereço(s) do usuario");
+        jButton2.setText("Endere�o(s) do usuario");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        btnEditarUsuarioSelecionado.setText("Editar usuário selecionado");
+        btnEditarUsuarioSelecionado.setText("Editar usu�rio selecionado");
         btnEditarUsuarioSelecionado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarUsuarioSelecionadoActionPerformed(evt);

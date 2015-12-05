@@ -80,7 +80,7 @@ public class Administrador {
      */
     public void setDadosUsuario(String cod_usuario, String cpf, String nome, String email, String telefone, String senha, String cod_grupo, char tipo_usuario) {
         //ordem cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario
-        this.usuario.setAtualizaDadosUsuario(cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario);
+        this.usuario.updateDadosUsuario(cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario);
     }
 
     /**

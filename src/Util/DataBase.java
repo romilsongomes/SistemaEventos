@@ -51,7 +51,7 @@ public class DataBase {
             Class.forName("org.postgresql.Driver"); //importar pacote do PostgreSQL
 
             this.dbCon = DriverManager.getConnection(this.dbUrl, this.dbUsuario, this.dbSenha);
-            System.out.println("Conectado ao banco com sucesso.");
+            System.out.println("\n\nConectado ao banco com sucesso.");
         }//fim try
         catch (Exception e) {
             if (e instanceof SQLSyntaxErrorException) { //adicionar a biblioteca ao projeto

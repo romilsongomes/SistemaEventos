@@ -2,7 +2,7 @@ package Controller;
 
 import Model.EnderecoM;
 import Model.UsuarioM;
-
+import javax.swing.JTextField;
 
 public class EnderecoC {
 
@@ -47,5 +47,7 @@ public class EnderecoC {
         }
     }
 
-   
+    public void cadastrarEndereco(JTextField campoCpf, JTextField campoEstado, JTextField campoCidade, JTextField campoCep, JTextField campoRua, JTextField campoBairro, JTextField campoNumero) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

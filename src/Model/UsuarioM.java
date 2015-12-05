@@ -87,33 +87,70 @@ public class UsuarioM {
         ResultSet res = this.db.executaConsultaSql(sqlQuery);
         return res;
     }
-    
-    public void setAtualizaDadosUsuario(String cod_usuario, String cpf, String nome, String email, String telefone, String senha, String cod_grupo, char tipo_usuario){
+
+    public ResultSet autenticaUsuario(String email, String senha) {
+        System.out.println("Obtendo o código do usuario em UsuarioM");
+        String sqlQuery = "select cod_usuario, email, senha, tipo_usuario from usuario where email = upper('" + email + "') and senha = '" + senha + "';";
+        ResultSet res = this.db.executaConsultaSql(sqlQuery);
+        return res;
+
+    }
+
+
+
+    public void alteraUsuarioM(String cpf, String nome, String email, String telefone, String senha) {
+        this.cpf = cpf;
+
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.senha = senha;
+
+        //Insere o usuario no banco de dados
+        //update usuario set  (cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario) =('22222222','romario','romario@','123456789','123456',2,'i') where cod_usuario=3	
+        String codGrupo2 = (codGrupo == null) ? null : "'" + codGrupo + "'";
+        String sql;
+        sql = "update usuario set cpf, nome, email, telefone, senha"
+                + " = ('" + cpf + "', upper('" + nome + "'), upper('" + email + "'), '" + telefone + "', '" + senha + "')where (cod_usuario='" + codUsuario + "');";
+        this.db.executaComandoSql(sql);
+    }
+
+    public void updateDadosUsuario(String cod_usuario, String cpf, String nome, String email, String telefone, String senha, String cod_grupo, char tipo_usuario) {
         //ordem cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario
-        
+
         //verificar se o código do grupo foi passado vazio ou nulo
         String cod_grupo2 = ("".equals(cod_grupo) || cod_grupo == null) ? null : "'" + cod_grupo + "'";
         String sql;
         sql = "update usuario set "
-                + "cpf = '"+cpf+"', "
-                + "nome = upper('"+nome+"'), "
-                + "email = upper('"+email+"'), "
-                + "telefone = '"+telefone+"', "
-                + "senha = '"+senha+"', "
-                + "cod_grupo = "+cod_grupo2+", "
-                + "tipo_usuario = '"+tipo_usuario+"' "
-                + "     where cod_usuario = "+cod_usuario+";";
+                + "cpf = '" + cpf + "', "
+                + "nome = upper('" + nome + "'), "
+                + "email = upper('" + email + "'), "
+                + "telefone = '" + telefone + "', "
+                + "senha = '" + senha + "', "
+                + "cod_grupo = " + cod_grupo2 + ", "
+                + "tipo_usuario = '" + tipo_usuario + "' "
+                + "     where cod_usuario = " + cod_usuario + ";";
         this.db.executaComandoSql(sql);
     }
-    
+
+    /**
+     * Usado para montar a matriz (Array mult.) da lista de usuarios
+     *
+     * @return
+     */
     public ResultSet getTotalUsuarios() {
         String sqlQuery;
         sqlQuery = "SELECT count(cod_usuario) as total_usuarios from usuario;";
         ResultSet res = this.db.executaConsultaSql(sqlQuery);
         return res;
     }
-    
-    public ResultSet getTodosUsuarios(){
+
+    /**
+     * Usado para listar os usuarios no view
+     *
+     * @return
+     */
+    public ResultSet getTodosUsuarios() {
         String sqlQuery;
         sqlQuery = "SELECT * from usuario;";
         ResultSet res = this.db.executaConsultaSql(sqlQuery);

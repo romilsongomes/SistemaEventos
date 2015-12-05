@@ -8,9 +8,6 @@
 package View;
 
 import Controller.Administrador;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -23,9 +20,9 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
     /**
      * Construir a tabela de usuarios cadastrados
      */
-    String[] listaUsuariosCabecalho = new String[]{
+    /*String[] listaUsuariosCabecalho = new String[]{
         "Cod. Usuário", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usuário", "Cod. Grupo"
-    };
+    };*/
     //Object[][] listaUsuariosLinhas = administrador.getUsuariosParaLista();
 
 
@@ -45,11 +42,6 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SistemaEventosPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("SistemaEventosPU").createEntityManager();
-        usuarioQuery = java.beans.Beans.isDesignTime() ? null : SistemaEventosPUEntityManager.createQuery("SELECT u FROM Usuario u");
-        usuarioList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuarioQuery.getResultList();
-        usuarioQuery1 = java.beans.Beans.isDesignTime() ? null : SistemaEventosPUEntityManager.createQuery("SELECT u FROM Usuario u");
-        usuarioList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuarioQuery1.getResultList();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaListaUsuarios = new javax.swing.JTable();
@@ -69,7 +61,9 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
 
         tabelaListaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             administrador.getUsuariosParaLista(),
-            listaUsuariosCabecalho
+            new String[]{
+				"Cod. Usuário", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usuário", "Cod. Grupo"
+			}
         ));
         tabelaListaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -214,8 +208,6 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaListaUsuarios;
-    private java.util.List<View.Usuario> usuarioList;
-    private java.util.List<View.Usuario> usuarioList1;
     private javax.persistence.Query usuarioQuery;
     private javax.persistence.Query usuarioQuery1;
     // End of variables declaration//GEN-END:variables

@@ -60,6 +60,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         botaoLogin.setText("Login");
+        botaoLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,6 +156,10 @@ public class Login extends javax.swing.JFrame {
         lu.setVisible(true);
         dispose();
     }//GEN-LAST:event_butaoListaUsuariosActionPerformed
+
+    private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoLoginActionPerformed
 
     /**
      * @param args the command line arguments

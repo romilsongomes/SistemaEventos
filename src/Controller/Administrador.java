@@ -17,8 +17,9 @@ public class Administrador {
     EnderecoM endereco = new EnderecoM();
     GrupoUsuarioM grupo = new GrupoUsuarioM();
 
-    /*
-     Usuários
+    /**
+     * ***********************************************************************************
+     * Usuários
      */
     public String cadastrarUsuario(String cpf, String codGrupo, String tipoUsuario, String nome, String email, String telefone, String senha) {
 
@@ -38,6 +39,12 @@ public class Administrador {
         }
     }
 
+    /**
+     * Obtem dos dados de um usuario específico
+     *
+     * @param cod_usuario
+     * @return Array String
+     */
     public String[] getDadosUsuario(String cod_usuario) {
         ResultSet res = this.usuario.getDadosUsuario(cod_usuario);
 
@@ -59,14 +66,27 @@ public class Administrador {
         return dados;
     }
 
+    /**
+     * Atualiza dados de um usuario no banco de dados pelo cod_do usuario
+     *
+     * @param cod_usuario
+     * @param cpf
+     * @param nome
+     * @param email
+     * @param telefone
+     * @param senha
+     * @param cod_grupo
+     * @param tipo_usuario
+     */
     public void setDadosUsuario(String cod_usuario, String cpf, String nome, String email, String telefone, String senha, String cod_grupo, char tipo_usuario) {
         //ordem cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario
-        this.usuario.setDadosUsuario(cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario);
-
+        this.usuario.setAtualizaDadosUsuario(cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario);
     }
+
     /**
      * Obtem o total de usuarios cadastrados no banco de dados
-     * @return 
+     *
+     * @return
      */
     public int getTotalUsuarios() {
         int totalUsuarios = 0;
@@ -80,15 +100,16 @@ public class Administrador {
         }
         return totalUsuarios;
     }
-    
+
     /**
      * Obtem a lista de usuarios em Object para setar na tabela do view
+     *
      * @return - matriz de objeto
      */
-    public Object[][] getUsuariosParaLista(){
+    public Object[][] getUsuariosParaLista() {
         //dados do banco
         ResultSet res = this.usuario.getTodosUsuarios();
-        
+
         //Obter o total de colunas do resultado
         int linhas = this.getTotalUsuarios();
         int colunas = 0;
@@ -98,15 +119,15 @@ public class Administrador {
         } catch (SQLException ex) {
             Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //pegando os dados da tabela e setando na matriz (array mult.) de objeto
         Object[][] dadosTabela = new Object[linhas][colunas];
         int contador = 0;
         try {
             while (res.next()) {
                 /**
-                 * ordem dos dados
-                 *"Cod. Usuário", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usuário", "Cod. Grupo"
+                 * ordem dos dados: "Cod. Usuário", "Nome", "CPF", "Email",
+                 * "Senha", "Telefone", "Tipo Usuário", "Cod. Grupo"
                  */
                 dadosTabela[contador][0] = res.getInt("cod_usuario");
                 dadosTabela[contador][1] = res.getString("nome");
@@ -116,7 +137,7 @@ public class Administrador {
                 dadosTabela[contador][5] = res.getString("telefone");
                 dadosTabela[contador][6] = res.getString("tipo_usuario");
                 dadosTabela[contador][7] = res.getString("cod_grupo");
-                
+
                 contador++;
             }
         } catch (Exception e) {
@@ -124,10 +145,11 @@ public class Administrador {
         }
         return dadosTabela;
     }//fim método
-    /*
-     Endereco
-     */
 
+    /**
+     * ***********************************************************************************
+     * Endereco
+     */
     public String cadastrarEndereco(String cpf, String estado, String cidade, String cep, String rua, String bairro, String numero) {
         String codUsuario;
         System.out.println("O cpf é:" + cpf);
@@ -155,8 +177,9 @@ public class Administrador {
         }
     }
 
-    /*
-     Grupos de usuarios
+    /**
+     * ***********************************************************************************
+     * Grupos de usuarios
      */
     public String criarGrupo(String nome) {
         this.grupo.criacaoGrupo(nome);
@@ -192,8 +215,9 @@ public class Administrador {
         }
     }
 
-    /*
-     Evento
+    /**
+     * ***********************************************************************************
+     * Evento
      */
     public String CadastrarEvento(String evNome, String evDescricao, String evDataIni, String evDataFim) {
         this.evento.CadastroEvento(evNome, evDescricao, evDataIni, evDataFim);

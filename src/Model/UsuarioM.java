@@ -88,7 +88,7 @@ public class UsuarioM {
         return res;
     }
     
-    public void setDadosUsuario(String cod_usuario, String cpf, String nome, String email, String telefone, String senha, String cod_grupo, char tipo_usuario){
+    public void setAtualizaDadosUsuario(String cod_usuario, String cpf, String nome, String email, String telefone, String senha, String cod_grupo, char tipo_usuario){
         //ordem cod_usuario, cpf, nome, email, telefone, senha, cod_grupo, tipo_usuario
         
         //verificar se o código do grupo foi passado vazio ou nulo

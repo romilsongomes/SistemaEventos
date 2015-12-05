@@ -32,7 +32,7 @@ public class UsuarioC {
             JOptionPane.showMessageDialog(null, "Você precisa selecionar um usuario.", "Atenção!", JOptionPane.ERROR_MESSAGE);
         }
         else{
-            AdminEditarUsuario eu = new AdminEditarUsuario();
+            AdminEditarUsuario eu = new AdminEditarUsuario(codUsuario);
             eu.setVisible(true);
         }
     }

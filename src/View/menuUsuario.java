@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.AutenticacaoUsuario;
+
 /**
  *
  * @author Romilso
@@ -27,12 +29,20 @@ public class menuUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        testeCodUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         upadeteUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        testeCodUsuario.setText("O código do usuario logado aparecerá aqui");
 
         jMenu1.setText("cadastro usuario");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,11 +70,17 @@ public class menuUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(testeCodUsuario)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(testeCodUsuario)
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,6 +97,13 @@ public class menuUsuario extends javax.swing.JFrame {
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         
     }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        AutenticacaoUsuario au = new AutenticacaoUsuario();
+        String cod_usuario = au.getCodUsuario();
+        testeCodUsuario.setText("O código do usuario é "+cod_usuario);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -121,6 +144,7 @@ public class menuUsuario extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel testeCodUsuario;
     private javax.swing.JMenuItem upadeteUsuario;
     // End of variables declaration//GEN-END:variables
 }

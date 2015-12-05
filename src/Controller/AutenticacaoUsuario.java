@@ -53,7 +53,8 @@ public class AutenticacaoUsuario {
         } catch (Exception e) {
             //alguma coisa
         }
-        if (email.equals(bancoEmail) && senha.equals(bancoSenha)) {
+        String emailCaixaAlta = email.toUpperCase();
+        if (emailCaixaAlta.equals(bancoEmail) && senha.equals(bancoSenha)) {
             //setar o código do usuario e o tipo do usuario logado
             AutenticacaoUsuario.codUsuario = bancoCodUsuario;
             AutenticacaoUsuario.tipoUsuario = bancoTipoUsuario;

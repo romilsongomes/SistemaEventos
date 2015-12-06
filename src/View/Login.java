@@ -80,15 +80,14 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(botaoCadastro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botaoLogin)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(labelSenha)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(campoSenha))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(labelEmail)
-                            .addGap(18, 18, 18)
-                            .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelSenha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(campoSenha))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelEmail)
+                        .addGap(18, 18, 18)
+                        .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,8 +166,8 @@ public class Login extends javax.swing.JFrame {
             //como só existem 2 tipos de usuarios, ele é administrador ou incrito
             if ("a".equals(resTipoUsuario) || "A".equals(resTipoUsuario)) {
                 //chama a tela principal do administrador
-                AdminListarUsuarios telaListarUsuarios = new AdminListarUsuarios();
-                telaListarUsuarios.setVisible(true);
+                AdminPrincipal telaAdminPrincipal = new AdminPrincipal();
+                telaAdminPrincipal.setVisible(true);
             } else {
                 //chama a tela principal do inscrito
                 menuUsuario telaMenuUsuario = new menuUsuario();

@@ -36,8 +36,8 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaListaUsuarios = new javax.swing.JTable();
         btnVoltarMenuPrincipal = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEditarUsuario = new javax.swing.JButton();
+        btnVerEnderecos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -72,15 +72,20 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
         );
 
         btnVoltarMenuPrincipal.setText("< Voltar ao menu principal");
-
-        jButton1.setText("Editar o usuário");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltarMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVoltarMenuPrincipalActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Ver os endereços");
+        btnEditarUsuario.setText("Editar o usuário");
+        btnEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnVerEnderecos.setText("Ver os endereços");
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -106,9 +111,9 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnEditarUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btnVerEnderecos)
                         .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
@@ -120,8 +125,8 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
                 .addComponent(panelListaUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnEditarUsuario)
+                    .addComponent(btnVerEnderecos))
                 .addContainerGap())
         );
 
@@ -129,14 +134,20 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
         // TODO add your handling code here:
         int linhaSelecionada = tabelaListaUsuarios.getSelectedRow();
         Object codUsuarioSelecionado = tabelaListaUsuarios.getValueAt(linhaSelecionada, 0); //linha, coluna
         AdminEditarUsuario aeu = new AdminEditarUsuario(codUsuarioSelecionado.toString());
         aeu.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEditarUsuarioActionPerformed
+
+    private void btnVoltarMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarMenuPrincipalActionPerformed
+        AdminPrincipal ap = new AdminPrincipal();
+        ap.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVoltarMenuPrincipalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,9 +188,9 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditarUsuario;
+    private javax.swing.JButton btnVerEnderecos;
     private javax.swing.JButton btnVoltarMenuPrincipal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

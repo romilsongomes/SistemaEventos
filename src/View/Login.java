@@ -134,6 +134,7 @@ public class Login extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(null,"Chamando tela de cadastro");
         Cadastro cad = new Cadastro();
         cad.setVisible(true);//rootPaneCheckingEnabled
+        this.dispose();
 
     }//GEN-LAST:event_botaoCadastroActionPerformed
 

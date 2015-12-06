@@ -8,33 +8,19 @@
 package View;
 
 import Controller.Administrador;
-import Controller.AutenticacaoUsuario;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Ennio
  */
 public class AdminListarUsuarios extends javax.swing.JFrame {
-
     Administrador administrador = new Administrador();
     
     /**
-     * Construir a tabela de usuarios cadastrados
-     */
-    /*String[] listaUsuariosCabecalho = new String[]{
-        "Cod. Usu�rio", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usu�rio", "Cod. Grupo"
-    };*/
-    //Object[][] listaUsuariosLinhas = administrador.getUsuariosParaLista();
-
-
-    /**
-     * Creates new form ListarUsuarios
+     * Creates new form novoEditarUsuarios
      */
     public AdminListarUsuarios() {
         initComponents();
-        AutenticacaoUsuario au = new AutenticacaoUsuario();
-        JOptionPane.showMessageDialog(null, "o cod do usuario logado é "+au.getCodUsuario());
     }
 
     /**
@@ -46,66 +32,63 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        panelListaUsuarios = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaListaUsuarios = new javax.swing.JTable();
+        btnVoltarMenuPrincipal = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnEditarUsuarioSelecionado = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gerenciamento de usu�rios");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de usu�rios"));
+        panelListaUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de usuários"));
 
         tabelaListaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
-            administrador.getUsuariosParaLista(),
+            this.administrador.getUsuariosParaLista(),
             new String[]{
-				"Cod. Usu�rio", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usu�rio", "Cod. Grupo"
-			}
-        ));
-        tabelaListaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaListaUsuariosMouseClicked(evt);
+                "Cod. Usuário", "Nome", "CPF", "Email", "Senha", "Telefone", "Tipo Usuário", "Cod. Grupo"
             }
-        });
+        ));
         jScrollPane1.setViewportView(tabelaListaUsuarios);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelListaUsuariosLayout = new javax.swing.GroupLayout(panelListaUsuarios);
+        panelListaUsuarios.setLayout(panelListaUsuariosLayout);
+        panelListaUsuariosLayout.setHorizontalGroup(
+            panelListaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListaUsuariosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelListaUsuariosLayout.setVerticalGroup(
+            panelListaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListaUsuariosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jButton2.setText("Endere�o(s) do usuario");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltarMenuPrincipal.setText("< Voltar ao menu principal");
+
+        jButton1.setText("Editar o usuário");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btnEditarUsuarioSelecionado.setText("Editar usu�rio selecionado");
-        btnEditarUsuarioSelecionado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarUsuarioSelecionadoActionPerformed(evt);
-            }
-        });
+        jButton2.setText("Ver os endereços");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,60 +97,46 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnVoltarMenuPrincipal)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(panelListaUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnEditarUsuarioSelecionado)
+                        .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addContainerGap())
+                        .addComponent(jButton2)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVoltarMenuPrincipal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(panelListaUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(btnEditarUsuarioSelecionado))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-
-        tabelaListaUsuarios.getModel().addTableModelListener(tabelaListaUsuarios);
-//tableNameList.addAll(tableQuery.getResultList());
-    }//GEN-LAST:event_formWindowOpened
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void tabelaListaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaListaUsuariosMouseClicked
-        // TODO add your handling code here:
-        /*int linhaSelecionada = tabelaListaUsuarios.getSelectedRow();
-        int col = tabelaListaUsuarios.getSelectedColumn();
-        campoLinha.setText("" + linhaSelecionada);
-        campoColuna.setText("" + col);
-        Object codUsuarioSelecionado = tabelaListaUsuarios.getValueAt(linhaSelecionada, 0); //linha, coluna
-        campoCodUsuario.setText(codUsuarioSelecionado.toString());*/
-
-    }//GEN-LAST:event_tabelaListaUsuariosMouseClicked
-
-    private void btnEditarUsuarioSelecionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioSelecionadoActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int linhaSelecionada = tabelaListaUsuarios.getSelectedRow();
         Object codUsuarioSelecionado = tabelaListaUsuarios.getValueAt(linhaSelecionada, 0); //linha, coluna
         AdminEditarUsuario aeu = new AdminEditarUsuario(codUsuarioSelecionado.toString());
         aeu.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnEditarUsuarioSelecionadoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +165,8 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -206,13 +177,14 @@ public class AdminListarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager SistemaEventosPUEntityManager;
-    private javax.swing.JButton btnEditarUsuarioSelecionado;
+    private javax.swing.JButton btnVoltarMenuPrincipal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelListaUsuarios;
     private javax.swing.JTable tabelaListaUsuarios;
-    private javax.persistence.Query usuarioQuery;
-    private javax.persistence.Query usuarioQuery1;
     // End of variables declaration//GEN-END:variables
 }
